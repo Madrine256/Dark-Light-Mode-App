@@ -1,16 +1,29 @@
 let getClasses = (myClass)=>{
     return document.querySelector(myClass);
   }
+  let getAllElements = (allElements)=>{
+      return document.querySelectorAll(allElements);
+  }
   const mySwitch = getClasses('.switch'),
   container = getClasses('.container'),
-  links = document.querySelectorAll('.links');
+  links = getAllElements('.links');
+
   //set function for our styles;
-  function offStyles(bgc, clr, bclr){
+  let offStyles = (bgc, clr, bclr)=>{
     container.style.background = bgc;
     container.style.color = clr;
     links.forEach(link=>{
         link.style.color = clr;
         link.style.borderColor = bclr;
+        link.onmouseenter = (e)=>{
+            e.currentTarget.style.background= "#000";
+            e.currentTarget.style.color = "#fff"; 
+        }
+        link.onmouseleave= (e)=>{
+            e.currentTarget.style.background= bgc;
+            e.currentTarget.style.color = clr; 
+        }
+       
     })
   }
       mySwitch.onclick = ()=>{
@@ -21,8 +34,7 @@ let getClasses = (myClass)=>{
             
         }else{
             mySwitch.innerHTML = "ON";
-            
-            offStyles("#000", "#fff" , "#fff")
+            window.location.reload();
         }
       
       }

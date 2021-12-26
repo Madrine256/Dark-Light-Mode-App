@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    border-box:box-sizing;
+    box-sizing: border-box;
   }
   hr{
     color:white;
@@ -32,7 +32,6 @@
     -webkit-background-clip: text;
      background-clip:text;
     -webkit-text-fill-color:transparent;
-     text-fill-color:transparent;
   }
   .link_container{
     padding: 10px;
