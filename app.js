@@ -2,19 +2,21 @@ let getClasses = myClass => document.querySelector(myClass),
     getAllElements = allElements => document.querySelectorAll(allElements);
   
   const mySwitch = getClasses('.switch'),
-        container = getClasses('.container'),
+        body = getClasses('body'),
+        switchConatiner = getClasses('.switch-container'),
         links = getAllElements('.links');
 
   //set function for our styles;
-  let offStyles = (bgc, clr, bclr)=>{
-    container.style.background = bgc;
-    container.style.color = clr;
+  let offStyles = (bgc, clr)=>{
+    body.style.background = bgc;
+    body.style.color = clr;
+    switchConatiner.style.background = clr;
     links.forEach(link =>{
         link.style.color = clr;
-        link.style.borderColor = bclr;
+        link.style.borderColor = clr;
         link.onmouseenter = e =>{
-            e.currentTarget.style.background= "#000";
-            e.currentTarget.style.color = "#fff"; 
+            e.currentTarget.style.background= bgc;
+            e.currentTarget.style.color = clr; 
         }
         link.onmouseleave= e =>{
             e.currentTarget.style.background= bgc;
@@ -27,7 +29,7 @@ let getClasses = myClass => document.querySelector(myClass),
         mySwitch.classList.toggle('posnChange');
         if(mySwitch.classList.contains('posnChange')){
             mySwitch.innerHTML = "OFF";
-            offStyles("#fff", "#000", "#000");
+            offStyles("#fff", "#000");
             
         }else{
             mySwitch.innerHTML = "ON";
