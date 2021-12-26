@@ -1,12 +1,9 @@
-let getClasses = (myClass)=>{
-    return document.querySelector(myClass);
-  }
-  let getAllElements = (allElements)=>{
-      return document.querySelectorAll(allElements);
-  }
+let getClasses = myClass => document.querySelector(myClass),
+    getAllElements = allElements => document.querySelectorAll(allElements);
+  
   const mySwitch = getClasses('.switch'),
-  container = getClasses('.container'),
-  links = getAllElements('.links');
+        container = getClasses('.container'),
+        links = getAllElements('.links');
 
   //set function for our styles;
   let offStyles = (bgc, clr, bclr)=>{
