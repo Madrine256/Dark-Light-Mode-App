@@ -9,14 +9,14 @@ let getClasses = myClass => document.querySelector(myClass),
   let offStyles = (bgc, clr, bclr)=>{
     container.style.background = bgc;
     container.style.color = clr;
-    links.forEach(link=>{
+    links.forEach(link =>{
         link.style.color = clr;
         link.style.borderColor = bclr;
-        link.onmouseenter = (e)=>{
+        link.onmouseenter = e =>{
             e.currentTarget.style.background= "#000";
             e.currentTarget.style.color = "#fff"; 
         }
-        link.onmouseleave= (e)=>{
+        link.onmouseleave= e =>{
             e.currentTarget.style.background= bgc;
             e.currentTarget.style.color = clr; 
         }
