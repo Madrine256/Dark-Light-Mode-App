@@ -4,24 +4,39 @@ let getClasses = myClass => document.querySelector(myClass),
   const mySwitch = getClasses('.switch'),
         body = getClasses('body'),
         switchConatiner = getClasses('.switch-container'),
-        links = getAllElements('.links');
+        link_container = getClasses('.link_container'),
+        links = getAllElements('.links'),
+        fieldset = getClasses('.title'),
+        bar = getClasses('.bar-container');
+        bar.onclick = ()=>{
+            
+                link_container.classList.toggle('showLinks');
+                if(link_container.classList.contains('showLinks')){
+                    fieldset.style.left = "-20%";
+                }else{
+                    fieldset.style.left = "auto";
+                }
+            
+            
+        }
 
   //set function for our styles;
-  let offStyles = (bgc, clr)=>{
-    body.style.background = bgc;
-    body.style.color = clr;
-    switchConatiner.style.background = clr;
+  let offStyles = (themebgColor, themeColor, linkbgColor)=>{
+    body.style.background = themebgColor;
+    body.style.color = themeColor;
+    switchConatiner.style.background = themeColor;
     links.forEach(link =>{
-        link.style.color = clr;
-        link.style.borderColor = clr;
-        link.onmouseenter = e =>{
-            e.currentTarget.style.background= bgc;
-            e.currentTarget.style.color = clr; 
-        }
-        link.onmouseleave= e =>{
-            e.currentTarget.style.background= bgc;
-            e.currentTarget.style.color = clr; 
-        }
+        link.style.color = themeColor;
+        link.style.borderColor = themeColor;
+        link.addEventListener('mouseenter' , (e)=>{
+            e.currentTarget.style.background= linkbgColor;
+            e.currentTarget.style.color = themebgColor; 
+        })
+        link.addEventListener('mouseleave',( e )=>{
+            e.currentTarget.style.background= "rgba(9,9,9,0.1)";
+            e.currentTarget.style.color = themeColor; 
+           
+        })
        
     })
   }
@@ -29,7 +44,10 @@ let getClasses = myClass => document.querySelector(myClass),
         mySwitch.classList.toggle('posnChange');
         if(mySwitch.classList.contains('posnChange')){
             mySwitch.innerHTML = "OFF";
-            offStyles("#fff", "#000");
+            offStyles("#fff", "#000", "rgba(0,0,0,0.5)");
+            bar.style.color = "#000";
+            link_container.style.background = "rgba(9,9,9,0.1)";
+            link_container.style.color = "#000";
             
         }else{
             mySwitch.innerHTML = "ON";
@@ -37,3 +55,6 @@ let getClasses = myClass => document.querySelector(myClass),
         }
       
       }
+    
+          
+      

@@ -11,23 +11,26 @@ body{
     transition: all 0.5s linear;
 }
   .container{
-    width: 90%;
+    width: 100%;
     height: 100vh;
-    padding: 10px;
+    /* padding: 10px; */
     margin: 0 auto;
   }
   nav{
     width: 100%;
+    height: 100px;
     position:relative;
-      display:grid;
+    display:grid;
     grid-template-columns: 1fr auto;
     grid-gap:20px;
+    background-color: rgba(128, 81, 81, 0.1);
   
   }
   .logo-container{ 
     font-size:25px;
     padding: 10px;
     margin-left:20px;
+    line-height: 80px;
   }
   .logo h1{
       background-image: linear-gradient(blue, green , red);
@@ -36,16 +39,22 @@ body{
      background-clip:text;
     -webkit-text-fill-color:transparent;
   }
+  .bar-container{
+    color: #fff;
+    font-size: 3rem;
+    margin: 20px auto;
+    display: none;
+    padding-right: 30px;
+  }
   .link_container{
-    padding: 10px;
+      line-height: 60px;
   }
   .link_container .links{
     text-decoration:none;
+    display: inline-block;
     color:white;
     font-size:25px;
     padding: 20px 40px;
-    margin-right:20px;
-    border-right: 2px solid white;
     transition:all 0.3s linear;
   }
   .link_container .links:hover{
@@ -53,11 +62,13 @@ body{
   }
   .title{
       text-transform: capitalize;
+      position: relative;
       margin: 30px auto;
       text-align: center;
       padding: 10px;
       font-size: 30px;
       max-width: 300px;
+      transition: all .5s ease-in-out;
   }
   section{
     display: flex;
@@ -84,13 +95,46 @@ body{
     width:50%;
     height:100%;
     position: absolute;
-    transition:all 0.3s linear;
+    transition:all 0.5s ease-in-out;
   }
-  .posnChange{
+   .posnChange{
       left: 0;
   }
     .posnChange{
     right:0
   }
+@media  ( max-width: 800px) {
+  /* nav{
+    display: block;
+  } */
+  .bar-container{
+    display: block;
+  }
+  .link_container{
+    width: auto;
+    position: fixed;
+    height: 100vh;
+    color:white;
+    right: -100%;
+    margin-top: 105px;
+    line-height: 40px;
+    transition: all .5s ease-in-out;
+    background-color: rgb(7, 7, 7);
+  }
+  .link_container .links {
+    border-right: none;
+    width: auto;
+    text-align: center;
+    display: block;
+    
+  }
+ .showLinks{
+    right: 0;
+  }
+  /* .showLinks{
+    right: -100%;
+  } */
+
+
  
   
